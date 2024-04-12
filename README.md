@@ -1,5 +1,8 @@
 # Diversity Weights
 
+Pytorch implementation:
+- Diversity Weights algorithm
+- Vendi Score (log space)
 
 ## Citation
 
