@@ -3,6 +3,8 @@ Vendi score
 Pytorch implementation
 """
 
+import math
+
 import torch
 import torch.nn.functional as F
 
@@ -36,7 +38,7 @@ def weight_K_log(K, p=None, n=None):
     if p is None:  # Normalize by number of items
         if n is None:
             n = K.shape[0]
-        return K - n  # Divide by number of items (in log space)
+        return K - math.log(n)  # Divide by number of items (in log space)
     else:
         assert K.shape[0] == p.shape[0]
         p_matrix = (p * .5).unsqueeze(0).expand(len(p), -1)  # Take square root (in log space) and expand view to [N x N]
